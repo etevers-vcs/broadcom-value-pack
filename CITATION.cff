@@ -1,0 +1,28 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Etevers VMware Cloud Standard Deployment Guide
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: XXX
+    family-names: X
+  - given-names: XXXX
+    family-names: XX
+repository-code: 'https://github.com/etevers-vcs/evcs-documentation'
+url: 'https://docs.etevers.tech/evcs-deployment-guide'
+keywords:
+  - VMware
+  - Broadcom
+  - Etevers
+  - VMware Cloud Foundation
+  - software-defined data center
+  - private cloud
+  - cloud management portal
+  - cloud services portal
+license: CC-BY-NC-SA-3.0
+version: '1'
+date-released: '2025-03-26'
