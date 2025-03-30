@@ -12,22 +12,21 @@
 
 ### Steps:
 
-### 1. Download of NSX Manager OVA
+### 1. Download of Broadcom Value Pack (BVP) Package
 <details>
 <summary>"Click to expand"</summary>
 
-Download NSX-T 3.0 Manager for VMware ESXi OVA file [download link ](https://my.vmware.com/web/vmware/details?downloadGroup=NSX-T-300&productId=982&rPId=45015)
+Download Broadcom Value Pack 1.0 Package file [download link ](https://my.vmware.com/web/vmware/details?downloadGroup=NSX-T-300&productId=982&rPId=45015)
 <p align="center">
   <img width=75% height=75% src="/docs/assets/Graphics/2.1.step1.jpg">
 </p>
 
-*Note: NSX-T Evaluations are based on Limited export build (no IPSEC VPN, no HTTPS LB), with no transition path to the full version.*
 
 </details>
 
 ---
 
-### 2. Deployment of NSX-T Manager
+### 2. Deployment of Broadcom Value Pack (BVP)
 <details>
 <summary>"Click to expand"</summary>
 
@@ -127,125 +126,7 @@ Under "System - Configuration - Fabric - Compute Managers", click "Refresh" (bot
 
 ---
 
-### 4. ESXi Host Preparation
-<details>
-<summary>"Click to expand"</summary>
-
-#### 4.1. New VDS-NSX creation
-
-<details>
-<summary>"Click to expand"</summary>
-
-- **Create New VDS-NSX (for future NSX-T Logical Switches).**  
-From vCenter, under "Networking", select the Data Center, and right-click to create a "New Distributed Switch".  
-*For this lab, see the top of page for "Number of uplinks (1)",  
-and "Default Port Group (none)".*  
-  	<p align="center">
-	  <img width=40% height=40% src="/docs/assets/Graphics/2.4.1.step1.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step2.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step3.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step4.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step5.jpg">
-	</p>  
-
-- **Add that VDS-NSX to ESXi.**  
-From vCenter, under "Networking", select the VDS-NSX, and right-click to "Add and Manage Hosts...".  
-  	<p align="center">
-	  <img width=40% height=40% src="/docs/assets/Graphics/2.4.1.step6.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step7.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step8.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step9.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step10.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step11.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step12.jpg">
-	</p>  
-
-- **Configure that VDS-NSX with an large MTU (at least 1700).**  
-From vCenter, under "Networking", select the VDS-NSX, and right-click to "Add and Manage Hosts...".  
-  	<p align="center">
-	  <img width=40% height=40% src="/docs/assets/Graphics/2.4.1.step13.jpg">
-	</p>  
-  	<p align="center">
-	  <img width=70% height=70% src="/docs/assets/Graphics/2.4.1.step14.jpg">
-	</p>  
-
-</details>
-
-
-#### 4.2. Uplink Profile Creation
-
-<details>
-<summary>"Click to expand"</summary>
-
-- **Create Uplink Profile for Transport Nodes ("VLAN-Overlay + NIC" information for ESXis + Edge Node).**  
-From NSX-T, under "System - Configuration - Fabric - Profiles - Uplink Profiles", click "Add".  
-*For this lab, see the top of page for VLAN for Overlay traffic information (12),  
-and number of uplinks for "VDS - NSX-T" information (1 NIC).*  
-  	<p align="center">
-	  <img width=50% height=50% src="/docs/assets/Graphics/2.4.2.step1.jpg">
-	</p>  
-
-</details>
-
-
-#### 4.3. Installion of NSX in ESXi
-
-<details>
-<summary>"Click to expand"</summary>
-
-- **Configure NSX-T for ESXi.**  
-  - Select each ESXi of vCenter-Cluster  
-  Under "System - Configuration - Fabric - Node - Host Transport Nodes - Managed by", select "Lab-vCenter".  
-  *Select Type = VDS (to enable NSX into the existing "VDS-NSX" vCenter Distributed Switch),  
-  Mode = Standard,  
-  Transport Zone = "nsx-overlay-transportzone" (Default TZ for overlay traffic) + "nsx-vlan-transportzone" (Default TZ for VLAN traffic),  
-  Uplink Profile = "Lab-HostProfile" (with VLAN-Overlay information),  
-  IP (TEP) = Information on top of the page,  
-  Uplink = ESX VDS Uplink1.*
-  	<p align="center">
-	  <img width=85% height=85% src="/docs/assets/Graphics/2.4.3.step1.jpg">
-	</p>   
-
-  - **For each ESXi, configure its new "VDS - NSX-T"**  
-  Click "Configure NSX".  
-	<p align="center">
-	  <img width=75% height=75% src="/docs/assets/Graphics/2.4.3.step2a.jpg">
-	</p>  
-	<p align="center">
-	  <img width=75% height=75% src="/docs/assets/Graphics/2.4.3.step2b.jpg">
-	</p>  
-  - **For each ESXi, validate "VDS - NSX-T" creation.**  
-
-	<p align="center">
-	  <img width=75% height=75% src="/docs/assets/Graphics/2.4.3.step3.jpg">
-	</p>  
-</details>
-
-</details>
-
----
-
-### 5. Deployment of Edge Node
+### 5. Deployment of Broadcom Value Pack (BVP) in Aria Automation
 
 
 <details>
