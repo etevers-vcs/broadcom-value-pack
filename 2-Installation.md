@@ -1,23 +1,11 @@
 
-## 2. Installation of NSX-T
-
-*Disclaimer: The below install is a minimal installation intended for a lab environment only. We do not recommend below install in a live production environment.*
-
-<p align="center">
-  <img width=75% height=75% src="/docs/assets/Graphics/2.0.Installation-Design-1.jpg">
-</p>  
-<p align="center">
-  <img width=75% height=75% src="/docs/assets/Graphics/2.0.Installation-Design-2.jpg">
-</p>  
+## Installation of Broadcom Value Pack 
 
 
-| IP of each Element | Management (VLAN11) | Overlay -TEP (VLAN12) |
-|:-------------------|:-------------------:|:---------------------:|
-| vCenter            |     19.168.50.4     |           -           |
-| ESXi1              |    19.168.50.21     |     192.168.51.21     |
-| ESXi2              |    19.168.50.22     |     192.168.51.22     |
-| NSX-T Manager      |     19.168.50.5     |           -           |
-| Edge Node          |    19.168.50.31     |     192.168.51.31     |
+| VMware Product           | Version               |
+|:-------------------------|:---------------------:|
+| VMware Cloud Foundation  |     5.2               |     
+| Aria Automation          |     8.18              |
 
 ---
 
