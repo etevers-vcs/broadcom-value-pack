@@ -6,6 +6,7 @@
 |:-------------------------|:---------------------:|
 | VMware Cloud Foundation  |     5.2               |     
 | Aria Automation          |     8.18              |
+| Broadcom Value Pack      |     1.0               |
 
 ---
 
