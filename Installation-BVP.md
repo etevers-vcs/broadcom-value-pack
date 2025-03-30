@@ -339,5 +339,5 @@ Under "System - Configuration - Fabric - Nodes - Edge Clusters", click "Refresh"
 
 ---
 
-[***Next Step: 3. NSX Evaluation***](/docs/3-NSX-Evaluation.md)
+[***Reference: VMware Cloud Foundation 5.2***](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2.html)
 
