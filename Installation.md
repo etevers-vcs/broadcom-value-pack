@@ -37,12 +37,12 @@ Download Broadcom Value Pack 1.0 Package file [download package ](https://github
 
 - **Select Package file.**  
 	<p align="center">
-	  <img width=75% height=75% src="/assets/Assets_Packages.png">
+	  <img width=75% height=75% src="https://github.com/sophiacho/Broadcom-Value-Pack-by-Korea-CXS/raw/refs/heads/main/assets/Assets_Packages.png">
 	</p>
 
 - **Review Broadcom Value Pack Package details and import Package file**  
 	<p align="center">
-	  <img width=75% height=75% src="/assets/Packages_Import.png">
+	  <img width=75% height=75% src="https://github.com/sophiacho/Broadcom-Value-Pack-by-Korea-CXS/raw/refs/heads/main/assets/Packages_Import.png">
 	</p>
 
 </details>
@@ -59,35 +59,35 @@ Download Broadcom Value Pack 1.0 Package file [download package ](https://github
 
 - **From VMware Cloud Foundation Automation, go to Orchestrator.**  
 	<p align="center">
-	  <img width=75% height=75% src="/assets/Select_Orchestrator.png">
+	  <img width=75% height=75% src="https://github.com/sophiacho/Broadcom-Value-Pack-by-Korea-CXS/raw/refs/heads/main/assets/Select_Orchestrator.png">
 	</p>
 
 - **Select Library Workflows.**  
 	<p align="center">
-	  <img width=75% height=75% src="/assets/Library_Workflows.png">
+	  <img width=75% height=75% src="https://github.com/sophiacho/Broadcom-Value-Pack-by-Korea-CXS/raw/refs/heads/main/assets/Library_Workflows.png">
 	</p>
 
 - **Select Install Value Pack Workflow and select Admin Project and Backup Source to install.**  
 	<p align="center">
-	  <img width=75% height=75% src="/assets/Install Value Pack_Workflow.png">
+	  <img width=75% height=75% src="https://github.com/sophiacho/Broadcom-Value-Pack-by-Korea-CXS/raw/refs/heads/main/assets/Install Value Pack_Workflow.png">
 	</p>
 
 - **Review Custom Resources of Broadcom Value Pack.**  
 	<p align="center">
-	  <img width=75% height=75% src="/assets/Custom_Resources.png">
+	  <img width=75% height=75% src="https://github.com/sophiacho/Broadcom-Value-Pack-by-Korea-CXS/raw/refs/heads/main/assets/Custom_Resources.png">
 	</p>
 
  - **Review Extensibility Library Actions of Broadcom Value Pack.**  
 	<p align="center">
-	  <img width=75% height=75% src="/assets/Library_Actions_1.png">
+	  <img width=75% height=75% src="https://github.com/sophiacho/Broadcom-Value-Pack-by-Korea-CXS/raw/refs/heads/main/assets/Library_Actions_1.png">
 	</p>
 
  	<p align="center">
-	  <img width=75% height=75% src="/assets/Library_Actions_2.png">
+	  <img width=75% height=75% src="https://github.com/sophiacho/Broadcom-Value-Pack-by-Korea-CXS/raw/refs/heads/main/assets/Library_Actions_2.png">
 	</p>
  
  	<p align="center">
-	  <img width=75% height=75% src="/assets/Library_Actions_3.png">
+	  <img width=75% height=75% src="https://github.com/sophiacho/Broadcom-Value-Pack-by-Korea-CXS/raw/refs/heads/main/assets/Library_Actions_3.png">
 	</p>
  
 </details>
