@@ -32,7 +32,7 @@ Download Broadcom Value Pack 1.0 Package file [download package ](https://github
 
 - **From VMware Cloud Foundation Automation, go to Orchestrator.**  
 	<p align="center">
-	  <img width=75% height=75% src="/assets/Select_Orchestrator.png">
+	  <img width=75% height=75% src="https://github.com/sophiacho/Broadcom-Value-Pack-by-Korea-CXS/raw/refs/heads/main/assets/Select_Orchestrator.png">
 	</p>
 
 - **Select Package file.**  
