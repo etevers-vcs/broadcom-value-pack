@@ -15,9 +15,9 @@ namespace :book do
   # Check contributors list
   # This checks commit hash stored in the header of list against current HEAD
   def check_contrib
-    if File.exist?('book/contributors.txt')
+    if File.exist?('contributors.txt')
       current_head_hash = `git rev-parse --short HEAD`.strip
-      header = `head -n 1 book/contributors.txt`.strip
+      header = `head -n 1 contributors.txt`.strip
       # Match regex, then coerce resulting array to string by join
       header_hash = header.scan(/[a-f0-9]{7,}/).join
 
@@ -25,10 +25,10 @@ namespace :book do
         puts "Hash on header of contributors list (#{header_hash}) matches the current HEAD (#{current_head_hash})"
       else
         puts "Hash on header of contributors list (#{header_hash}) does not match the current HEAD (#{current_head_hash}), refreshing"
-        sh "rm book/contributors.txt"
+        sh "rm contributors.txt"
         # Reenable and invoke task again
-        Rake::Task['book/contributors.txt'].reenable
-        Rake::Task['book/contributors.txt'].invoke
+        Rake::Task['contributors.txt'].reenable
+        Rake::Task['contributors.txt'].invoke
       end
     end
   end
@@ -53,57 +53,57 @@ namespace :book do
   end
 
   desc 'generate contributors list'
-  file 'book/contributors.txt' do
+  file 'contributors.txt' do
       puts 'Generating contributors list'
-      sh "echo 'Contributors as of #{header_hash}:\n' > book/contributors.txt"
-      sh "git shortlog -s HEAD | grep -v -E '(Straub|Chacon|dependabot)' | cut -f 2- | sort | column -c 120 >> book/contributors.txt"
+      sh "echo 'Contributors as of #{header_hash}:\n' > contributors.txt"
+      sh "git shortlog -s HEAD | grep -v -E '(Straub|Chacon|dependabot)' | cut -f 2- | sort | column -c 120 >> contributors.txt"
   end
 
   desc 'build HTML format'
-  task :build_html => 'book/contributors.txt' do
+  task :build_html => 'contributors.txt' do
       check_contrib()
 
       puts 'Converting to HTML...'
-      sh "bundle exec asciidoctor #{params} -a data-uri evcs-documentation.asc"
-      puts ' -- HTML output at etvs-documentation.html'
+      sh "bundle exec asciidoctor #{params} -a data-uri evcs-guide-architecture.asc"
+      puts ' -- HTML output at evcs-guide-architecture.html'
 
   end
 
   desc 'build Epub format'
-  task :build_epub => 'book/contributors.txt' do
+  task :build_epub => 'contributors.txt' do
       check_contrib()
 
       puts 'Converting to EPub...'
-      sh "bundle exec asciidoctor-epub3 #{params} evcs-documentation.asc"
-      puts ' -- Epub output at etvs-documentation.epub'
+      sh "bundle exec asciidoctor-epub3 #{params} evcs-guide-architecture.asc"
+      puts ' -- Epub output at evcs-guide-architecture.epub'
 
   end
 
   desc 'build FB2 format'
-  task :build_fb2 => 'book/contributors.txt' do
+  task :build_fb2 => 'contributors.txt' do
       check_contrib()
 
       puts 'Converting to FB2...'
-      sh "bundle exec asciidoctor-fb2 #{params} evcs-documentation.asc"
-      puts ' -- FB2 output at etvs-documentation.fb2.zip'
+      sh "bundle exec asciidoctor-fb2 #{params} evcs-guide-architecture.asc"
+      puts ' -- FB2 output at evcs-guide-architecture.fb2.zip'
 
   end
 
   desc 'build PDF format'
-  task :build_pdf => 'book/contributors.txt' do
+  task :build_pdf => 'contributors.txt' do
       check_contrib()
       # https://docs.asciidoctor.org/pdf-converter/latest/theme/cjk/
       puts 'Converting to PDF... (this one takes a while)'
-      sh "bundle exec asciidoctor-pdf #{params} -a scripts=cjk -a pdf-theme=./themes/pdf/pdf-korean.yml -a pdf-fontsdir=./themes/pdf evcs-documentation.asc 2>/dev/null"
-      puts ' -- PDF output at etvs-documentation.pdf'
+      sh "bundle exec asciidoctor-pdf #{params} -a scripts=cjk -a pdf-theme=./themes/pdf/pdf-korean.yml -a pdf-fontsdir=./themes/pdf evcs-guide-architecture.asc 2>/dev/null"
+      puts ' -- PDF output at evcs-guide-architecture.pdf'
   end
 
   desc 'Check generated books'
   task :check => [:build_html, :build_epub] do
       puts 'Checking generated books'
 
-      sh "htmlproofer etvs-documentation.html"
-      sh "epubcheck etvs-documentation.epub"
+      sh "htmlproofer evcs-guide-architecture.html"
+      sh "epubcheck evcs-guide-architecture.epub"
   end
 
   desc 'Clean all generated files'
@@ -111,7 +111,7 @@ namespace :book do
     begin
         puts 'Removing generated files'
 
-        FileList['book/contributors.txt', 'etvs-documentation.html', 'progit-kf8.epub', 'etvs-documentation.epub', 'etvs-documentation.fb2.zip', 'etvs-documentation.pdf'].each do |file|
+        FileList['contributors.txt', 'evcs-guide-architecture.html', 'progit-kf8.epub', 'evcs-guide-architecture.epub', 'evcs-guide-architecture.fb2.zip', 'evcs-guide-architecture.pdf'].each do |file|
             rm file
 
             # Rescue if file not found

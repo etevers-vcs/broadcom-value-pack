@@ -15,3 +15,5 @@ gem 'pygments.rb', '3.0.0'
 gem 'thread_safe', '0.3.6'
 gem 'epubcheck-ruby', '5.2.1.0'
 gem 'html-proofer', '5.0.10'
+
+gem "bigdecimal", "3.1.9"
